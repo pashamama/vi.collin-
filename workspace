@@ -1,4 +1,3 @@
-# vi.collin-
 def validar_codigo(codigo, libros):
     if not codigo or codigo.strip() == "":
         return False
@@ -134,7 +133,6 @@ def eliminar_libro(codigo, libros, prestamos):
     return True
 
 def main():
-    # Diccionarios iniciales
     libros = {
         'L001': ['Sombras del Sur', 'A. Rojas', 'novela', 2019, 'AndesPress', False],
         'L002': ['Python en Ruta', 'M. Diaz', 'tecnología', 2023, 'CodeBooks', True],
@@ -154,7 +152,6 @@ def main():
     }
     
     while True:
-        # Mostrar menú
         print("\n========== MENÚ PRINCIPAL ==========")
         print("1. Copias por género")
         print("2. Búsqueda de libros por rango de multa")
@@ -169,12 +166,11 @@ def main():
       
         opcion = leer_opcion()
         
-        # ====== OPCIÓN 1: Copias por género ======
         if opcion == 1:
             genero = input("Ingrese género a consultar: ").strip()
             copias_genero(genero, libros, prestamos)
         
-        # ====== OPCIÓN 2: Búsqueda por rango de multa ======
+
         elif opcion == 2:
             while True:
                 try:
@@ -198,7 +194,7 @@ def main():
             
             busqueda_multa(multa_min, multa_max, libros, prestamos)
         
-        # ====== OPCIÓN 3: Actualizar multa de libro ======
+
         elif opcion == 3:
             while True:
                 codigo = input("Ingrese código del libro: ").strip()
@@ -220,9 +216,8 @@ def main():
                 if continuar != 's':
                     break
         
-        # ====== OPCIÓN 4: Agregar libro ======
         elif opcion == 4:
-            # Solicitar y validar cada campo
+
             codigo = input("Ingrese código del libro: ").strip()
             if not validar_codigo(codigo, libros):
                 print("El código no es válido o ya existe")
